@@ -20,12 +20,10 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class PatientService {
   
-@PersistenceContext
-protected EntityManager entityManager;
+    @PersistenceContext
+    protected EntityManager entityManager;
 
-public Collection<Patient> read() {
-		return (Collection<Patient>) entityManager.createQuery("SELECT x FROM " + Patient.class.getSimpleName() + " x", Patient.class)
-				.getResultList();
-	}
-    
+    public Collection<Patient> read() {
+        return (Collection<Patient>) entityManager.createQuery("SELECT x FROM " + Patient.class.getSimpleName() + " x", Patient.class).getResultList();
+    }
 }
