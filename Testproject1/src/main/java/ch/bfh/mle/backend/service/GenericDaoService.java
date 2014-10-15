@@ -1,22 +1,21 @@
 package ch.bfh.mle.backend.service;
 
+import ch.bfh.mle.backup.files.IDao;
 import java.util.Collection;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
-public abstract class GenericJpaDao<E> implements IDao<E> {
-	
+
+public abstract class GenericDaoService<E> implements IService<E> {
+
 	@PersistenceContext
 	protected EntityManager entityManager;
 	private Class<E> entityClass;
-	
-	public GenericJpaDao(Class<E> entityClass) {
+	    
+	public GenericDaoService(Class<E> entityClass) {
 		this.entityClass = entityClass;
-	}
-	
-	@Transactional
+        }
+        
 	public E create() {
 		try {
 			return entityClass.newInstance();
@@ -35,12 +34,12 @@ public abstract class GenericJpaDao<E> implements IDao<E> {
 				.getResultList();
 	}
 
-	@Transactional
+
 	public E update(E entity) {
 		return entityManager.merge(entity);
 	}
 	
-	@Transactional
+
 	public void delete(E entity) {
 		entity = entityManager.merge(entity);
 		entityManager.remove(entity);

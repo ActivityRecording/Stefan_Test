@@ -5,19 +5,20 @@
  */
 package ch.bfh.mle.backend.service;
 
-import ch.bfh.mle.backend.model.Patient;
+import ch.bfh.mle.backend.model.Behandlungsfall;
 import javax.ejb.Stateless;
 import javax.inject.Named;
 
 /**
  *
- * @author Boris
+ * @author haueb1@students.bfh.ch
  */
+
 @Stateless
 @Named
-public class PatientService extends GenericDaoService<Patient>{
-   
-     public PatientService() {
-        super(Patient.class);
+public class CaseService extends GenericDaoService<Behandlungsfall>{
+    
+    public CaseService(){
+        super(Behandlungsfall.class);
     }
 }

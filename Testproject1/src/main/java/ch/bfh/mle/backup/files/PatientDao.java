@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bfh.mle.backend.service;
+package ch.bfh.mle.backup.files;
 
 import ch.bfh.mle.backend.model.Patient;
 import javax.inject.Named;
